@@ -90,8 +90,6 @@ let maplocalleader="\<Space>"
 "	  (nmode, vmode)
 nnoremap <leader>r :
 vnoremap <leader>r :
-"	  (imode)
-inoremap <c-r> <esc>:
 " + normal mode access;
 "	+ from insert mode:
 inoremap jk <esc>
@@ -233,29 +231,28 @@ cnoremap help vert help
 nnoremap <leader>m :vert help
 
 " # leave vim
-noremap <leader>qq :q<cr>
+" noremap <leader>qq :q<cr>
 " # forcefully leave vim
-noremap <leader>qf :q!<cr>
+" noremap <leader>qf :q!<cr>
 
 " alternative movement mappings
 nnoremap <c-l> <c-w>w
 nnoremap <c-h> <c-w>W
 nnoremap <c-k> :bprevious<cr>
 nnoremap <c-j> :bnext<cr>
-nnoremap <c-L> :tabprevious<cr>
-nnoremap <c-H> :tabnext<cr>
+nnoremap <c-u> :tabprevious<cr>
+nnoremap <c-i> :tabnext<cr>
 
 " searching
 nnoremap s /
 nnoremap S ?
-nnoremap <c-R> n
-nnoremap <c-F> N
 
 " compatibility mappings
 " make vim shortcuts compatible with usual workflow
 " ## saving: <c-s> to save the file
 " 	(NEEDSFIX: if the file is new the browser should file up and ask for a
 " 	name, otherwise just silently store the file...)
+nnoremap <c-n> :enew<cr>
 nnoremap <silent> <c-s> :update<cr>
 inoremap <silent> <c-s> <esc>:update<cr>a
 vnoremap <silent> <c-s> <esc>:update<cr>v
@@ -306,8 +303,8 @@ noremap q <nop>
 " ## disable runmode
 noremap Q <nop>
 " ## inoremap <BS> <nop>
-nnoremap n <nop>
-nnoremap N <nop>
+" nnoremap n <nop>
+" nnoremap N <nop>
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " abbreviations
@@ -452,6 +449,7 @@ inoremap <c-c>mt ⊨
 inoremap <c-c>ne ≠
 inoremap <c-c>in ∈
 inoremap <c-c>ou ∉
+" em|pty
 inoremap <c-c>em ∅
 inoremap <c-c>le ≤
 inoremap <c-c>ge ≥
@@ -501,6 +499,11 @@ nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 " visual mode: puts double quotes around the currently selected block
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
 
+nnoremap z <c-R>
+nnoremap c zz
+
+" close buffer without closing window
+nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " functions
